@@ -1866,5 +1866,217 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
         
         createParticles();
     </script>
+
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://manna9683.app.n8n.cloud/webhook/7dc3111c-3ab8-4f44-960c-c2929226b2a0/chat'
+	}); -->
+
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+
+<style>
+  /* ── Core brand colors ── */
+  :root {
+    --chat--color-primary: #00ff88;
+    --chat--color-primary-shade-50: #00cc6a;
+    --chat--color-primary-shade-100: #00aa55;
+    --chat--color-secondary: #00ff88;
+    --chat--color-secondary-shade-50: #00cc6a;
+
+    /* Window */
+    --chat--window--width: 380px;
+    --chat--window--height: 520px;
+
+    /* Header */
+    --chat--header--background: #0a0a0a;
+    --chat--header--color: #00ff88;
+
+    /* Messages */
+    --chat--message--bot--background: #1a1a1a;
+    --chat--message--bot--color: #e0e0e0;
+    --chat--message--user--background: #0a2e1a;
+    --chat--message--user--color: #00ff88;
+
+    /* Input */
+    --chat--input--background: #1a1a1a;
+    --chat--input--text--color: #ffffff;
+    --chat--input--border--color--focus: #00ff88;
+
+    /* General background */
+    --chat--color-white: #111111;
+    --chat--color-light: #1a1a1a;
+    --chat--color-light-shade-50: #2a2a2a;
+    --chat--color-light-shade-100: #333333;
+    --chat--color-medium: #555555;
+    --chat--color-dark: #ffffff;
+    --chat--color-disabled: #666666;
+    --chat--color-typing: #00ff88;
+
+    /* Toggle button */
+    --chat--toggle--background: #00ff88;
+    --chat--toggle--hover--background: #00cc6a;
+    --chat--toggle--active--background: #00aa55;
+    --chat--toggle--color: #0a0a0a;
+    --chat--toggle--size: 64px;
+
+    /* Border radius */
+    --chat--border-radius: 12px;
+    --chat--message--bot--border-radius: 4px 16px 16px 16px;
+    --chat--message--user--border-radius: 16px 4px 16px 16px;
+  }
+
+  /* ── Toggle button ── */
+  .n8n-chat-toggle svg,
+  .n8n-chat-toggle i,
+  .n8n-chat-toggle span {
+    color: #0a0a0a !important;
+    fill: #0a0a0a !important;
+  }
+
+  .n8n-chat-toggle {
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5) !important;
+    border: none !important;
+  }
+
+  .n8n-chat-toggle:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 136, 0.75) !important;
+    transform: scale(1.05);
+  }
+
+  /* ── Header ── */
+  .n8n-chat-window-header {
+    border-bottom: 1px solid rgba(0, 255, 136, 0.2) !important;
+    background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%) !important;
+  }
+
+  .n8n-chat-window-header h1,
+  .n8n-chat-window-header span {
+    color: #00ff88 !important;
+  }
+
+  .n8n-chat-window-header p {
+    color: #e0e0e0 !important;
+    opacity: 0.8;
+  }
+
+  /* ── Chat window ── */
+  .n8n-chat-window {
+    border: 1px solid rgba(0, 255, 136, 0.25) !important;
+    box-shadow: 0 10px 40px rgba(0, 255, 136, 0.15) !important;
+  }
+
+  /* ── Input area ── */
+  .n8n-chat-input {
+    border-top: 1px solid rgba(0, 255, 136, 0.2) !important;
+    background: #111111 !important;
+  }
+
+  /* FIX: typing text always white and visible */
+  .n8n-chat-input input,
+  .n8n-chat-input textarea,
+  .n8n-chat-inputs input,
+  .n8n-chat-inputs textarea,
+  [class*="chat"] input,
+  [class*="chat"] textarea {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    caret-color: #00ff88 !important;
+    border: 1px solid rgba(0, 255, 136, 0.3) !important;
+    border-radius: 8px !important;
+  }
+
+  [class*="chat"] input::placeholder,
+  [class*="chat"] textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4) !important;
+  }
+
+  [class*="chat"] input:focus,
+  [class*="chat"] textarea:focus {
+    border-color: #00ff88 !important;
+    box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1) !important;
+    outline: none !important;
+  }
+
+  /* ── Send button ── */
+  .n8n-chat-input button,
+  [class*="chat"] button[class*="send"] {
+    background: #00ff88 !important;
+    color: #0a0a0a !important;
+    border-radius: 8px !important;
+  }
+
+  .n8n-chat-input button svg,
+  .n8n-chat-input button svg path,
+  .n8n-chat-input button svg polygon,
+  .n8n-chat-input button svg *,
+  [class*="chat"] button[class*="send"] svg * {
+    fill: #0a0a0a !important;
+    color: #0a0a0a !important;
+    stroke: #0a0a0a !important;
+  }
+
+  .n8n-chat-input button:hover {
+    background: #00cc6a !important;
+  }
+
+  /* ── Bot message bubble ── */
+  .n8n-chat-message-bot .n8n-chat-message-bubble,
+  [class*="chat-message"][class*="bot"] [class*="bubble"] {
+    background: #1a1a1a !important;
+    color: #e0e0e0 !important;
+    border: 1px solid rgba(0, 255, 136, 0.1) !important;
+  }
+
+  /* FIX: User message — dark bg + green text, always readable */
+  .n8n-chat-message-user .n8n-chat-message-bubble,
+  [class*="chat-message"][class*="user"] [class*="bubble"],
+  [class*="chat-message"][class*="user"] [class*="text"] {
+    background: #0a2e1a !important;
+    color: #00ff88 !important;
+    border: 1px solid rgba(0, 255, 136, 0.4) !important;
+    font-weight: 500 !important;
+  }
+
+  /* ── Scrollbar ── */
+  .n8n-chat-messages-list::-webkit-scrollbar {
+    width: 4px;
+  }
+  .n8n-chat-messages-list::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  .n8n-chat-messages-list::-webkit-scrollbar-thumb {
+    background: #00ff88;
+    border-radius: 4px;
+  }
+</style>
+
+<script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://manna9683.app.n8n.cloud/webhook/7dc3111c-3ab8-4f44-960c-c2929226b2a0/chat',
+    mode: 'window',
+    showWelcomeScreen: true,
+    defaultLanguage: 'en',
+    initialMessages: [
+      "Hi there! 👋 I'm Atanu's personal assistant.",
+      "Ask me anything about his projects, skills, experience, or how to get in touch!"
+    ],
+    i18n: {
+      en: {
+        title: 'Atanu Manna',
+        subtitle: 'AI & Data Science Specialist',
+        inputPlaceholder: 'Type your question...',
+        getStarted: 'Start Conversation',
+        closeButtonTooltip: 'Close chat',
+      }
+    }
+  });
+</script>
+</script>
 </body>
 </html>
