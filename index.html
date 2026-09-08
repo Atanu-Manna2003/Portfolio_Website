@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atanu Manna | AI & Data Science Specialist</title>
+    <title>Atanu Manna | AI/ML Engineer</title>
+    <meta name="description" content="Atanu Manna - AI/ML Engineer specializing in Python, Machine Learning, Generative AI, LLM integration, RAG, and production backend systems.">
+    <meta name="author" content="Atanu Manna">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
@@ -662,30 +664,33 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 28px;
         }
 
         .project-card {
             background: var(--card-bg);
-            border-radius: 20px;
+            border-radius: 18px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass);
+            display: flex;
+            flex-direction: column;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
         }
 
         .project-image {
-            height: 200px;
+            height: 180px;
             overflow: hidden;
             position: relative;
+            flex-shrink: 0;
         }
 
         .project-image img {
@@ -700,24 +705,21 @@
         }
 
         .project-content {
-            padding: 25px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
         .project-content h3 {
-            margin-bottom: 10px;
-            font-size: 1.3rem;
+            margin-bottom: 4px;
+            font-size: 1.25rem;
         }
 
         .project-content p {
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            font-size: 0.92rem;
+            line-height: 1.6;
         }
 
         .project-tag {
@@ -729,9 +731,31 @@
             border: 1px solid rgba(0, 255, 136, 0.2);
         }
 
+        /* Tech chips inside a project card sink to the bottom so every
+           card's button row lines up regardless of text length */
+        .project-content .tech-tags {
+            margin-top: auto;
+            padding-top: 4px;
+        }
+
         .project-links {
             display: flex;
-            gap: 15px;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .project-links .btn {
+            flex: 1;
+            justify-content: center;
+            padding: 11px 16px;
+            font-size: 0.88rem;
+            border-radius: 10px;
+            box-shadow: none;
+        }
+
+        .project-links .btn:hover {
+            transform: none;
+            box-shadow: 0 6px 18px rgba(0, 255, 136, 0.25);
         }
 
         /* Experience Section */
@@ -781,10 +805,10 @@
             box-shadow: var(--shadow);
             margin-bottom: 25px;
             position: relative;
-            border-left: 4px solid var(--primary);
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
             border: 1px solid var(--glass);
+            border-left: 4px solid var(--primary);
         }
 
         .experience-item:hover {
@@ -815,6 +839,97 @@
             font-size: 0.9rem;
             font-weight: 500;
             color: var(--primary-light);
+            white-space: nowrap;
+        }
+
+        /* Bulleted achievement list used inside experience items */
+        .experience-list {
+            list-style: none;
+            margin: 15px 0 0;
+            padding: 0;
+        }
+
+        .experience-list li {
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .experience-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .experience-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 3px;
+            font-size: 0.8rem;
+            color: var(--primary);
+        }
+
+        /* Tech-stack chips shown under an experience / project entry */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+
+        .tech-tag {
+            background: rgba(255, 255, 255, 0.04);
+            padding: 4px 11px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--primary-light);
+            border: 1px solid rgba(0, 255, 136, 0.18);
+        }
+
+        /* Project card: role label + achievement list */
+        .project-role {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--primary);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .project-highlights {
+            list-style: none;
+            margin: 0 0 14px;
+            padding: 0;
+        }
+
+        .project-highlights li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 8px;
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            line-height: 1.55;
+        }
+
+        .project-highlights li:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-highlights li::before {
+            content: '\f0da';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 1px;
+            color: var(--primary);
+            font-size: 0.8rem;
         }
 
         /* Contact Section */
@@ -1165,7 +1280,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <a href="https://drive.google.com/file/d/1d-587KW6QlDGwfKP6CdQzS8ISBkj7HoD/view?usp=sharing" class="btn" target="_blank">
+                <a href="https://drive.google.com/file/d/1ysBfDaihV91gZ9EQPjEudJkiWMlxI0Tt/view?usp=sharing" class="btn" target="_blank">
                     <i class="fas fa-download"></i> Resume
                 </a>
                 <div class="hamburger">
@@ -1182,9 +1297,9 @@
                 <div class="hero-subtitle">Hello, I'm</div>
                 <h1 class="hero-title">
                     <span class="name">Atanu Manna</span>
-                    <span class="dynamic-text" id="dynamic-text">AI Engineer</span>
+                    <span class="dynamic-text" id="dynamic-text">AI/ML Engineer</span>
                 </h1>
-                <p class="hero-description">Building intelligent systems that solve real-world problems through innovative AI solutions and cutting-edge research.</p>
+                <p class="hero-description">AI/ML Engineer building production backend systems across recruitment, healthcare, and legal-tech &mdash; combining Python, machine learning, and Generative AI (LLMs, RAG, semantic search) across the full ML lifecycle.</p>
                 <div class="hero-buttons">
                     <a href="#projects" class="btn">
                         <i class="fas fa-rocket"></i> View My Work
@@ -1212,26 +1327,26 @@
         <div class="container">
             <div class="section-header">
                 <h2>About Me</h2>
-                <p>I'm a passionate Data Science professional specializing in Machine Learning, Deep Learning, and AI applications.</p>
+                <p>AI/ML Engineer with professional experience building production backend systems powered by machine learning and Generative AI.</p>
             </div>
             <div class="about-container">
                 <div class="about-content fade-in">
-                    <p>I'm a Computer Science and Engineering (Data Science) student at The Neotia University with a passion for transforming data into actionable insights. With a CGPA of 9.02, I'm set to graduate in 2025 and ready to make an impact in the field of data science.</p>
-                    <p>My journey in data science began with curiosity about how data can solve real-world problems. Since then, I've immersed myself in machine learning, deep learning, and AI technologies, completing internships at DCG Data Core System, AILABS, and WEBEL.</p>
-                    <p>I believe in the power of data-driven decision making and am constantly exploring new techniques and technologies to expand my skill set.</p>
-                    
+                    <p>I'm an AI/ML Engineer based in Kolkata, India, currently working as a Junior Data Scientist at OBI Private Limited, where I engineer Python/Flask backend services for an AI-driven ERP recruitment platform &mdash; from LLM-based resume parsing to a hybrid candidate-matching engine and predictive hiring models.</p>
+                    <p>I hold a B.Tech in Computer Science &amp; Engineering from The Neotia University (CGPA 9.02/10), and have built ML and backend systems across four roles &mdash; one full-time and three internships &mdash; spanning recruitment, healthcare, and legal-tech.</p>
+                    <p>My work covers the full ML lifecycle &mdash; feature engineering, model training and evaluation, LLM integration (Groq, OpenAI, Anthropic), RAG and semantic search, REST API design, and deployment with Docker, MLflow, and cloud platforms.</p>
+
                     <div class="about-stats">
                         <div class="stat">
-                            <div class="stat-number">10+</div>
-                            <div class="stat-text">Projects Completed</div>
+                            <div class="stat-number">4</div>
+                            <div class="stat-text">Professional Roles</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">3</div>
-                            <div class="stat-text">Internships</div>
+                            <div class="stat-number">9.02</div>
+                            <div class="stat-text">B.Tech CGPA / 10</div>
                         </div>
                         <div class="stat">
-                            <div class="stat-number">2025</div>
-                            <div class="stat-text">Graduation Year</div>
+                            <div class="stat-number">112</div>
+                            <div class="stat-text">REST Endpoints Shipped</div>
                         </div>
                     </div>
                 </div>
@@ -1244,105 +1359,117 @@
         <div class="container">
             <div class="section-header">
                 <h2>Technical Skills</h2>
-                <p>I've developed a diverse skill set through academic projects, internships, and self-study.</p>
+                <p>The tools and techniques I use to take ML and Generative AI systems from data to production.</p>
             </div>
-            
+
             <div class="skills-container">
                 <div class="skills-grid">
+                    <!-- Programming & Backend -->
                     <div class="skill-card fade-in">
                         <div class="skill-icon">
-                            <i class="fas fa-brain"></i>
+                            <i class="fas fa-server"></i>
                         </div>
-                        <h3>Machine Learning & AI</h3>
+                        <h3>Programming &amp; Backend</h3>
                         <div class="skill-items">
-                            <div class="skill-item">Supervised Learning</div>
-                            <div class="skill-item">Unsupervised Learning</div>
-                            <div class="skill-item">Deep Learning</div>
-                            <div class="skill-item">Neural Networks</div>
-                            <div class="skill-item">NLP</div>
-                            <div class="skill-item">Generative AI</div>
+                            <div class="skill-item">Python</div>
+                            <div class="skill-item">SQL</div>
+                            <div class="skill-item">Flask</div>
+                            <div class="skill-item">REST API</div>
+                            <div class="skill-item">Pydantic</div>
+                            <div class="skill-item">SQLAlchemy</div>
                         </div>
                         <div class="skill-level">
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="90"></div>
                             </div>
                             <div class="skill-info">
-                                <span>Expertise Level</span>
-                                <span>80%</span>
+                                <span>Proficiency</span>
+                                <span>90%</span>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- Machine Learning -->
                     <div class="skill-card fade-in">
                         <div class="skill-icon">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-brain"></i>
                         </div>
-                        <h3>Programming & Tools</h3>
+                        <h3>Machine Learning</h3>
                         <div class="skill-items">
-                            <div class="skill-item">Python</div>
-                            
-                            <div class="skill-item">SQL</div>
-                            <div class="skill-item">TensorFlow</div>
-                            <div class="skill-item">PyTorch</div>
                             <div class="skill-item">Scikit-learn</div>
-                            <div class="skill-item">Pandas</div>
-                            <div class="skill-item">NumPy</div>
+                            <div class="skill-item">XGBoost</div>
+                            <div class="skill-item">Random Forest</div>
+                            <div class="skill-item">K-Means Clustering</div>
+                            <div class="skill-item">Classification &amp; Regression</div>
+                            <div class="skill-item">Feature Engineering</div>
+                            <div class="skill-item">Model Evaluation</div>
+                            <div class="skill-item">Predictive Modeling</div>
                         </div>
                         <div class="skill-level">
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="85"></div>
                             </div>
                             <div class="skill-info">
-                                <span>Expertise Level</span>
+                                <span>Proficiency</span>
                                 <span>85%</span>
                             </div>
                         </div>
                     </div>
-                    
+
+                    <!-- Generative AI & NLP -->
                     <div class="skill-card fade-in">
                         <div class="skill-icon">
-                            <i class="fas fa-chart-bar"></i>
+                            <i class="fas fa-robot"></i>
                         </div>
-                        <h3>Data Analysis & Visualization</h3>
+                        <h3>Generative AI &amp; NLP</h3>
                         <div class="skill-items">
-                            <div class="skill-item">Exploratory Data Analysis</div>
-                            <div class="skill-item">Statistical Analysis</div>
-                            <div class="skill-item">Data Visualization</div>
-            
-                            <div class="skill-item">Matplotlib</div>
-                            <div class="skill-item">Seaborn</div>
+                            <div class="skill-item">LLMs (Groq, OpenAI, Anthropic)</div>
+                            <div class="skill-item">RAG</div>
+                            <div class="skill-item">Embeddings</div>
+                            <div class="skill-item">Semantic &amp; Hybrid Search</div>
+                            <div class="skill-item">Vector Search</div>
+                            <div class="skill-item">Prompt Engineering</div>
+                            <div class="skill-item">LangChain</div>
+                            <div class="skill-item">LangGraph</div>
+                            <div class="skill-item">Sentence Transformers</div>
+                            <div class="skill-item">AI Agents</div>
+                            <div class="skill-item">MCP</div>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="88"></div>
+                            </div>
+                            <div class="skill-info">
+                                <span>Proficiency</span>
+                                <span>88%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Data, Search & MLOps -->
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Data, Search &amp; MLOps</h3>
+                        <div class="skill-items">
+                            <div class="skill-item">MongoDB</div>
+                            <div class="skill-item">MySQL</div>
+                            <div class="skill-item">OpenSearch</div>
+                            <div class="skill-item">Docker</div>
+                            <div class="skill-item">MLflow</div>
+                            <div class="skill-item">CI/CD</div>
+                            <div class="skill-item">Git &amp; GitHub</div>
+                            <div class="skill-item">Render</div>
+                            <div class="skill-item">AWS</div>
                         </div>
                         <div class="skill-level">
                             <div class="skill-bar">
                                 <div class="skill-progress" data-width="80"></div>
                             </div>
                             <div class="skill-info">
-                                <span>Expertise Level</span>
+                                <span>Proficiency</span>
                                 <span>80%</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="skill-card fade-in">
-                        <div class="skill-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Deployment & Cloud</h3>
-                        <div class="skill-items">
-                            <div class="skill-item">Docker</div>
-                            <div class="skill-item">MLflow</div>
-                            <div class="skill-item">Render</div>
-                            <div class="skill-item">Streamlit</div>
-                            <div class="skill-item">Git</div>
-                            
-                        </div>
-                        <div class="skill-level">
-                            <div class="skill-bar">
-                                <div class="skill-progress" data-width="75"></div>
-                            </div>
-                            <div class="skill-info">
-                                <span>Expertise Level</span>
-                                <span>75%</span>
                             </div>
                         </div>
                     </div>
@@ -1356,148 +1483,260 @@
         <div class="container">
             <div class="section-header">
                 <h2>Featured Projects</h2>
-                <p>Here are some of my recent projects that demonstrate my skills in data science and AI applications.</p>
+                <p>Selected projects showing how I apply LLMs, agents, and machine learning to real workflows &mdash; each with the stack used and the impact delivered.</p>
             </div>
-            
+
             <div class="projects-grid">
-                <!-- Career Assistant Platform -->
+                <!-- ============================================================
+                     1. Career Assistant Platform
+                     LLM-powered resume parsing + semantic job matching
+                ============================================================= -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1579389083078-4e7018379f7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Career Assistant Platform">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Career Assistant Platform">
                     </div>
                     <div class="project-content">
                         <h3>Career Assistant Platform</h3>
-                        <p>An AI-powered platform that helps students and professionals explore career paths, identify skills gaps, and receive personalized recommendations.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">AI</span>
-                            <span class="project-tag">Career Guidance</span>
-                            <span class="project-tag">Recommendation System</span>
+                        <span class="project-role">LLM · Backend · 2025</span>
+                        <p>A Flask career assistant that automates the whole job-application flow &mdash; from parsing a resume to writing a tailored resume and cover letter per role.</p>
+                        <ul class="project-highlights">
+                            <li>Resume parsing plus semantic job matching against a candidate's skills.</li>
+                            <li>LLM-generated resumes and cover letters &mdash; ~60% less tailoring time, 4&times; faster applications.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Llama-3</span>
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">SQLAlchemy</span>
+                            <span class="tech-tag">LangChain</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Atanu-Manna2003" class="btn" target="_blank">
+                            <a href="https://github.com/Atanu-Manna2003" class="btn" target="_blank" rel="noopener">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="#" class="btn btn-outline" target="_blank">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     2. AI Trip Planner
+                     Agentic travel assistant orchestrating 8+ external tools
+                ============================================================= -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="AI Trip Planner">
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Trip Planner</h3>
+                        <span class="project-role">AI Agents · LangGraph · 2025</span>
+                        <p>An agentic travel assistant that plans full trips by reasoning over live data and picking the right tool for each step.</p>
+                        <ul class="project-highlights">
+                            <li>LangGraph + Groq LLMs orchestrating 8+ tools (Places, Tavily, weather, FX rates).</li>
+                            <li>Auto-builds day-by-day itineraries with budgets &mdash; ~60% less research time.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Flask</span>
+                            <span class="tech-tag">LangGraph</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Groq LLMs</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Atanu-Manna2003" class="btn" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://ai-trip-planner-xgm7.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Cold Email Generator -->
+                <!-- ============================================================
+                     3. Multi-Utility AI Chatbot
+                     Stateful multi-tool chatbot: RAG + web search + MCP tools
+                ============================================================= -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80" alt="Cold Email Generator">
+                        <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Multi-Utility AI Chatbot">
+                    </div>
+                    <div class="project-content">
+                        <h3>Multi-Utility AI Chatbot</h3>
+                        <span class="project-role">RAG · Agents · MCP · 2025</span>
+                        <p>A stateful multi-tool chatbot combining document Q&amp;A, web search, and custom tools in one chat interface.</p>
+                        <ul class="project-highlights">
+                            <li>LangChain + LangGraph on Groq LLaMA 3.3 70B, with PDF RAG (FAISS) and web search.</li>
+                            <li>Custom MCP tools and persistent SQLite-backed multi-thread chat history.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">LangGraph</span>
+                            <span class="tech-tag">FAISS</span>
+                            <span class="tech-tag">MCP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Atanu-Manna2003" class="btn" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     4. Cold Email Generator
+                     LLM + vector retrieval for personalized outreach
+                ============================================================= -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1172&q=80" alt="Cold Email Generator">
                     </div>
                     <div class="project-content">
                         <h3>Cold Email Generator</h3>
-                        <p>An LLM-based application that generates personalized cold emails using ChromaDB for vector storage and retrieval, improving outreach efficiency by 60%.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">LLM</span>
-                            <span class="project-tag">ChromaDB</span>
-                            <span class="project-tag">NLP</span>
+                        <span class="project-role">LLM · Vector Search</span>
+                        <p>Reads a job posting and drafts a personalized cold email backed by the most relevant portfolio items.</p>
+                        <ul class="project-highlights">
+                            <li>Parses a job description and matches it to a portfolio stored in ChromaDB.</li>
+                            <li>Generates outreach grounded in retrieved work samples &mdash; live on Render.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LLM</span>
+                            <span class="tech-tag">ChromaDB</span>
+                            <span class="tech-tag">LangChain</span>
+                            <span class="tech-tag">Streamlit</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Atanu-Manna2003/Cold_Email_Generator" class="btn" target="_blank">
+                            <a href="https://github.com/Atanu-Manna2003/Cold_Email_Generator" class="btn" target="_blank" rel="noopener">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="https://cold-email-generator-1-dfhv.onrender.com" class="btn btn-outline" target="_blank">
+                            <a href="https://cold-email-generator-1-dfhv.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Medical Insurance Cost Prediction -->
+
+                <!-- ============================================================
+                     5. Loan Approval Prediction
+                     Ensemble classification, MLflow tracking, Docker deploy
+                ============================================================= -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Medical Insurance Cost Prediction">
-                    </div>
-                    <div class="project-content">
-                        <h3>Medical Insurance Cost Prediction</h3>
-                        <p>A regression model that predicts medical insurance costs based on demographic and health-related factors with 87% accuracy.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Regression</span>
-                            <span class="project-tag">Healthcare</span>
-                            <span class="project-tag">Machine Learning</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Atanu-Manna2003/Medical-Insurance-Cost-Prediction" class="btn" target="_blank">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                            <a href="https://medical-insurance-cost-prediction-4.onrender.com/predictdata" class="btn btn-outline" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Loan Approval Prediction -->
-                <div class="project-card fade-in">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1534951009808-766178b47a4f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Loan Approval Prediction">
+                        <img src="https://images.unsplash.com/photo-1534951009808-766178b47a4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Loan Approval Prediction">
                     </div>
                     <div class="project-content">
                         <h3>Loan Approval Prediction</h3>
-                        <p>A classification model that predicts loan approval likelihood based on applicant credentials and financial history with 89% accuracy.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Classification</span>
-                            <span class="project-tag">Finance</span>
-                            <span class="project-tag">XGBoost</span>
+                        <span class="project-role">Classification · MLOps</span>
+                        <p>An end-to-end system predicting loan-approval likelihood from applicant credentials and financial history.</p>
+                        <ul class="project-highlights">
+                            <li>Logistic Regression / Random Forest / XGBoost ensemble at ~89% accuracy.</li>
+                            <li>MLflow tracking, Dockerized pipeline, and CI/CD via GitHub Actions.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">XGBoost</span>
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">MLflow</span>
+                            <span class="tech-tag">Docker</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Atanu-Manna2003/Loan_Approval_Prediction" class="btn" target="_blank">
+                            <a href="https://github.com/Atanu-Manna2003/Loan_Approval_Prediction" class="btn" target="_blank" rel="noopener">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="https://loan-approval-prediction-1qtd.onrender.com/" class="btn btn-outline" target="_blank">
+                            <a href="https://loan-approval-prediction-1qtd.onrender.com/" class="btn btn-outline" target="_blank" rel="noopener">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- What Makes a Country Happy -->
+                <!-- ============================================================
+                     6. Medical Insurance Cost Prediction
+                     Regression on demographic + health features
+                ============================================================= -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1508867743401-21ad68d105b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1169&q=80" alt="What Makes a Country Happy">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Medical Insurance Cost Prediction">
+                    </div>
+                    <div class="project-content">
+                        <h3>Medical Insurance Cost Prediction</h3>
+                        <span class="project-role">Regression · Healthcare</span>
+                        <p>Estimates individual medical-insurance charges from demographic and health factors.</p>
+                        <ul class="project-highlights">
+                            <li>Feature engineering on age, BMI, smoking status, and region.</li>
+                            <li>Tree-based regressor at ~87% R&sup2;, served via a Flask web form.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Scikit-learn</span>
+                            <span class="tech-tag">Regression</span>
+                            <span class="tech-tag">Flask</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Atanu-Manna2003/Medical-Insurance-Cost-Prediction" class="btn" target="_blank" rel="noopener">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                            <a href="https://medical-insurance-cost-prediction-4.onrender.com/predictdata" class="btn btn-outline" target="_blank" rel="noopener">
+                                <i class="fas fa-external-link-alt"></i> Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     7. What Makes a Country Happy
+                     EDA + clustering on the World Happiness Report
+                ============================================================= -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1508867743401-21ad68d105b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1169&q=80" alt="What Makes a Country Happy">
                     </div>
                     <div class="project-content">
                         <h3>What Makes a Country Happy</h3>
-                        <p>Data analysis project exploring the World Happiness Report to identify key factors contributing to national happiness levels using clustering techniques.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Data Analysis</span>
-                            <span class="project-tag">Clustering</span>
-                            <span class="project-tag">Visualization</span>
+                        <span class="project-role">EDA · Clustering</span>
+                        <p>An analysis of the World Happiness Report (2015&ndash;2019) identifying what drives national happiness.</p>
+                        <ul class="project-highlights">
+                            <li>Economy and life-expectancy factors explain ~68% of happiness variance.</li>
+                            <li>K-Means country segmentation and Random Forest feature-importance ranking.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">K-Means</span>
+                            <span class="tech-tag">Random Forest</span>
+                            <span class="tech-tag">Data Viz</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Atanu-Manna2003/What-Makes-a-Country-Happy" class="btn" target="_blank">
+                            <a href="https://github.com/Atanu-Manna2003/What-Makes-a-Country-Happy" class="btn" target="_blank" rel="noopener">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="https://what-makes-a-country-happy.onrender.com" class="btn btn-outline" target="_blank">
+                            <a href="https://what-makes-a-country-happy.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- How Educated India Is -->
+                <!-- ============================================================
+                     8. How Educated India Is
+                     Statistical analysis of literacy & education disparities
+                ============================================================= -->
                 <div class="project-card fade-in">
                     <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="How Educated India Is">
+                        <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="How Educated India Is">
                     </div>
                     <div class="project-content">
                         <h3>How Educated India Is</h3>
-                        <p>Comprehensive analysis of India's education system, literacy rates, and educational disparities across states using statistical methods and visualization.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Data Analysis</span>
-                            <span class="project-tag">Statistics</span>
-                            <span class="project-tag">Education</span>
+                        <span class="project-role">Data Analysis · Statistics</span>
+                        <p>A data-driven look at India's literacy rates, enrolment, and educational disparities across states.</p>
+                        <ul class="project-highlights">
+                            <li>Combined multiple public datasets into one clean analysis.</li>
+                            <li>Literacy and dropout trends compared by state and gender in a visual dashboard.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Pandas</span>
+                            <span class="tech-tag">Statistics</span>
+                            <span class="tech-tag">Matplotlib</span>
                         </div>
                         <div class="project-links">
-                            <a href="https://github.com/Atanu-Manna2003/How_Educated_India_Is" class="btn" target="_blank">
+                            <a href="https://github.com/Atanu-Manna2003/How_Educated_India_Is" class="btn" target="_blank" rel="noopener">
                                 <i class="fab fa-github"></i> Code
                             </a>
-                            <a href="https://how-educated-india-is.onrender.com" class="btn btn-outline" target="_blank">
+                            <a href="https://how-educated-india-is.onrender.com" class="btn btn-outline" target="_blank" rel="noopener">
                                 <i class="fas fa-external-link-alt"></i> Demo
                             </a>
                         </div>
@@ -1512,67 +1751,120 @@
         <div class="container">
             <div class="section-header">
                 <h2>Professional Experience</h2>
-                <p>My journey through internships and practical applications of data science concepts.</p>
+                <p>Production ML and backend roles across recruitment, healthcare, and legal-tech &mdash; plus my education and certifications.</p>
             </div>
-            
+
             <div class="experience-tabs">
-                <div class="tab active" data-tab="internships">Internships</div>
+                <div class="tab active" data-tab="work">Work</div>
                 <div class="tab" data-tab="education">Education</div>
                 <div class="tab" data-tab="certifications">Certifications</div>
             </div>
-            
-            <div class="tab-content active" id="internships">
+
+            <div class="tab-content active" id="work">
+                <!-- Current role -->
+                <div class="experience-item fade-in">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Junior Data Scientist</h3>
+                            <div class="experience-company">OBI Private Limited &middot; Remote</div>
+                        </div>
+                        <div class="experience-date">Jan 2026 &ndash; Present</div>
+                    </div>
+                    <ul class="experience-list">
+                        <li>Engineer Python/Flask backend services for an AI-driven ERP recruitment platform with 112 REST API endpoints, covering the full hiring lifecycle from sourcing to offer generation.</li>
+                        <li>Develop LLM-based resume-parsing pipelines and a hybrid candidate-matching engine (OpenSearch, Sentence Transformers, Reciprocal Rank Fusion) with an XGBoost hiring-outcome prediction model.</li>
+                        <li>Deliver backend components for an AI-assisted medical triage system (Flask, OpenAI, AWS) and Legacy Assured, an Anthropic LLM-powered will-generation platform.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">OpenSearch</span>
+                        <span class="tech-tag">Sentence Transformers</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">OpenAI</span>
+                        <span class="tech-tag">Anthropic</span>
+                        <span class="tech-tag">AWS</span>
+                    </div>
+                </div>
+
+                <!-- DCG Data Core System -->
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <div class="experience-title">
                             <h3>Backend Developer Intern</h3>
-                            <div class="experience-company">DCG Data Core System - Kolkata, West Bengal</div>
+                            <div class="experience-company">DCG Data Core System &middot; Kolkata, West Bengal</div>
                         </div>
-                        <div class="experience-date">Jan 2025 - Jun 2025</div>
+                        <div class="experience-date">Jan 2025 &ndash; Jun 2025</div>
                     </div>
-                    <p>Designed and developed a full stack ASP.NET Core MVC application for hospital patient registration, reduced
-manual data entry time by approximately 40% through modular design and secure data flow. Built a Retrieval-Augmented Generation (RAG) chatbot using Large Language Models (LLMs), improved user
-query response accuracy by approximately 30% compared to a static FAQ system.</p>
+                    <ul class="experience-list">
+                        <li>Developed a full-stack ASP.NET Core MVC application for hospital patient registration, cutting manual data-entry time by ~40% through modular design and secure data flow.</li>
+                        <li>Built a Retrieval-Augmented Generation (RAG) chatbot with LLMs and NLP-based query understanding, improving answer accuracy by ~30% over a static FAQ system.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">ASP.NET Core MVC</span>
+                        <span class="tech-tag">LLMs</span>
+                        <span class="tech-tag">RAG</span>
+                        <span class="tech-tag">NLP</span>
+                    </div>
                 </div>
-                
+
+                <!-- WEBEL -->
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <div class="experience-title">
                             <h3>Data Science Intern</h3>
-                            <div class="experience-company">WEBEL - Kolkata, West Bengal</div>
+                            <div class="experience-company">WEBEL &middot; Kolkata, West Bengal</div>
                         </div>
-                        <div class="experience-date">Jun 2024 - Aug 2024</div>
+                        <div class="experience-date">Jun 2024 &ndash; Aug 2024</div>
                     </div>
-                    <p>Built an interactive dashboard analyzing the World Happiness Report (2015–2019); identified economic and
-life expectancy factors as key drivers explaining 68% of happiness variance. Applied K-Means Clustering to segment countries into low, medium, and high happiness profiles and used a
-Random Forest Regressor for robust feature importance ranking.</p>
+                    <ul class="experience-list">
+                        <li>Built an EDA dashboard on the World Happiness Report (2015&ndash;2019), identifying economy and life-expectancy factors that explain ~68% of happiness variance.</li>
+                        <li>Applied K-Means clustering to segment countries into low / medium / high happiness profiles and a Random Forest Regressor for feature-importance ranking.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">K-Means</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">EDA</span>
+                    </div>
                 </div>
 
+                <!-- AILABS -->
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <div class="experience-title">
                             <h3>Machine Learning Intern</h3>
-                            <div class="experience-company">AILABS - Kolkata, West Bengal</div>
+                            <div class="experience-company">AILABS &middot; Kolkata, West Bengal</div>
                         </div>
-                        <div class="experience-date">Jun 2023 - Aug 2023</div>
+                        <div class="experience-date">Jun 2023 &ndash; Aug 2023</div>
                     </div>
-                    <p>Engineered a Loan Approval Prediction System using an ensemble of Logistic Regression, Random
-Forest, and XGBoost, achieving 89% prediction accuracy. Automated experiment tracking using MLflow and deployed a Dockerized ML pipeline on Render,
-reducing manual configuration effort by 35% and ensuring consistent model reproducibility.</p>
+                    <ul class="experience-list">
+                        <li>Engineered a loan-approval prediction system using Logistic Regression, Random Forest, and XGBoost, achieving 89% accuracy.</li>
+                        <li>Tracked experiments with MLflow and automated CI/CD via GitHub Actions and Docker, cutting configuration time by ~35% and ensuring reproducibility.</li>
+                    </ul>
+                    <div class="tech-tags">
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Random Forest</span>
+                        <span class="tech-tag">MLflow</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">GitHub Actions</span>
+                    </div>
                 </div>
             </div>
-            
+
             <div class="tab-content" id="education">
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <div class="experience-title">
-                            <h3>B.Tech in Computer Science & Engineering (Data Science)</h3>
-                            <div class="experience-company">The Neotia University</div>
+                            <h3>B.Tech in Computer Science &amp; Engineering</h3>
+                            <div class="experience-company">The Neotia University &middot; Diamond Harbour, West Bengal</div>
                         </div>
-                        <div class="experience-date">2021 - 2025</div>
+                        <div class="experience-date">2021 &ndash; 2025</div>
                     </div>
-                    <p>CGPA: 9.02/10.0</p>
-                    <p>Relevant coursework: Machine Learning, Deep Learning, Data Mining, Big Data Analytics, Natural Language Processing, Computer Vision, Statistical Methods, Database Management Systems.</p>
+                    <ul class="experience-list">
+                        <li>CGPA: 9.02 / 10.0</li>
+                        <li>Relevant coursework: Machine Learning, Deep Learning, Data Mining, Natural Language Processing, Big Data Analytics, Statistical Methods, and Database Management Systems.</li>
+                    </ul>
                 </div>
             </div>
             
@@ -1580,21 +1872,21 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <div class="experience-title">
-                            <h3>Oracle Cloud Infrastructure 2025 Certified Generative AI Professional</h3>
+                            <h3>OCI 2025 Certified Generative AI Professional</h3>
                             <div class="experience-company">Oracle</div>
                         </div>
-                        <div class="experience-date">2025</div>
+                        <div class="experience-date">Sept 2025</div>
                     </div>
                     <p>Validated knowledge of generative AI concepts, large language models, prompt engineering, and their implementation using Oracle Cloud Infrastructure tools.</p>
                 </div>
-                
+
                 <div class="experience-item fade-in">
                     <div class="experience-header">
                         <div class="experience-title">
                             <h3>Introduction to Data Science</h3>
-                            <div class="experience-company">Cisco</div>
+                            <div class="experience-company">Cisco Networking Academy</div>
                         </div>
-                        <div class="experience-date">2025</div>
+                        <div class="experience-date">Sept 2025</div>
                     </div>
                     <p>Gained foundational understanding of data science principles, including data analysis, visualization, statistical techniques, and machine learning basics.</p>
                 </div>
@@ -1624,7 +1916,7 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
                         </div>
                         <div class="contact-detail">
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Hooghly, West Bengal, India</span>
+                            <span>Kolkata, West Bengal, India</span>
                         </div>
                     </div>
                     
@@ -1680,7 +1972,7 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
                 </div>
             </div>
             <div class="copyright">
-                &copy; 2025 Atanu Manna. All Rights Reserved.
+                &copy; 2026 Atanu Manna. All Rights Reserved.
             </div>
         </div>
     </footer>
@@ -1689,10 +1981,7 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
         // Fixed Typewriter Implementation
         const dynamicText = document.getElementById('dynamic-text');
         const titles = [
-            "AI Engineer",
-            "Data Scientist", 
-            "Machine Learning Engineer",
-            "Deep Learning Specialist"
+            "AI/ML Engineer"
             
         ];
 
@@ -1868,13 +2157,20 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
     </script>
 
 
-<!-- <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
-<script type="module">
-	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+    <!--
+        =================================================================
+        AI CHATBOT WIDGET (n8n)  -  CURRENTLY DISABLED
+        =================================================================
+        The floating "personal assistant" chat bubble is powered by an
+        n8n workflow reached over a webhook. The whole block below
+        (stylesheet link, theme style rules, and the createChat() module
+        script) sits inside this HTML comment so nothing loads.
 
-	createChat({
-		webhookUrl: 'https://manna9683.app.n8n.cloud/webhook/7dc3111c-3ab8-4f44-960c-c2929226b2a0/chat'
-	}); -->
+        To re-enable: remove this comment's opening marker on the line
+        above and its closing marker near the end (just before the
+        closing body tag), then confirm the webhookUrl still points to a
+        live n8n workflow.
+        =================================================================
 
     <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
 
@@ -2069,7 +2365,7 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
     i18n: {
       en: {
         title: 'Atanu Manna',
-        subtitle: 'AI & Data Science Specialist',
+        subtitle: 'AI/ML Engineer',
         inputPlaceholder: 'Type your question...',
         getStarted: 'Start Conversation',
         closeButtonTooltip: 'Close chat',
@@ -2077,6 +2373,7 @@ reducing manual configuration effort by 35% and ensuring consistent model reprod
     }
   });
 </script>
-</script>
+    -->
+    <!-- END AI CHATBOT WIDGET -->
 </body>
 </html>
